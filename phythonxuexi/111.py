@@ -15,7 +15,7 @@ def ewt_kld_denoise(ae_signal, noise_signal, fs=2e6, nperseg=1024):
     _, f_ae, _, S_ae = stft(ae_signal, fs=fs, nperseg=nperseg)
     _, f_noise, _, S_noise = stft(noise_signal, fs=fs, nperseg=nperseg)
 
-    # 计算各频段KL散度（网页7公式）
+    # 计算各频段KL散度
     kl_divs = []
     for i in range(S_ae.shape[0]):
         p = S_ae[i, :] / np.sum(S_ae[i, :]) + 1e-9  # 防止除零
