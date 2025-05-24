@@ -23,7 +23,7 @@ def ewt_kld_denoise(ae_signal, noise_signal, fs=2e6, nperseg=1024):
         kl_div = np.sum(p * np.log(p / q))
         kl_divs.append(kl_div)
 
-        # 3σ阈值筛选有效频段（网页7阈值策略）
+        # 3σ阈值筛选有效频段
     mean_kl = np.mean(kl_divs)
     std_kl = np.std(kl_divs)
     valid_bands = [i for i, kl in enumerate(kl_divs) if kl > mean_kl + 3 * std_kl]
