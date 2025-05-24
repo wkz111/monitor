@@ -1,0 +1,20 @@
+digraph {
+	graph [rankdir=TB splines=ortho]
+	node [fontname=SimHei height=1.2 shape=box3d style="filled,rounded" width=2.5]
+	"传感器层" [label=<<b>传感器层</b>
+PAC R15α声发射传感器
+FBG温度阵列> fillcolor="#2F5496" fontcolor=black]
+	"边缘计算层" [label=<<b>边缘计算层</b>
+EWT-KLD降噪
+特征压缩> fillcolor="#548235" fontcolor=white]
+	"云端诊断平台" [label=<<b>云端诊断平台</b>
+特征矩阵构建
+C4.5动态决策树> fillcolor="#BF9000" fontcolor=black]
+	"用户端" [label=<<b>用户端</b>
+磨损分级
+维护建议推送> fillcolor="#ED7D31" fontcolor=white]
+	"传感器层" -> "边缘计算层" [label="同步采集" arrowhead=vee arrowsize=0.8 color="#2F5496" penwidth=2.0 style=solid]
+	"边缘计算层" -> "云端诊断平台" [label="5G传输" arrowhead=odiamond arrowsize=0.8 color="#548235" penwidth=2.0 style=dashed]
+	"云端诊断平台" -> "用户端" [label="OPC UA协议" arrowhead=odiamond arrowsize=0.8 color="#BF9000" penwidth=2.0 style=dotted]
+	"用户端" -> "边缘计算层" [label="参数反馈" arrowhead=odiamond arrowsize=0.8 color="#ED7D31" penwidth=2.0 style=dashed]
+}

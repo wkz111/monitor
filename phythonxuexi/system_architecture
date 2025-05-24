@@ -1,0 +1,11 @@
+digraph {
+	compound=true fontname=SimHei nodesep=0.5 rankdir=TB ranksep=0.8 splines=ortho
+	"传感器层" [fillcolor="#2F5496" fontcolor=black height=1.2 shape=box3d style="filled,rounded" width=2.5]
+	"边缘计算层" [fillcolor="#548235" fontcolor=white height=1.2 shape=box3d style="filled,rounded" width=2.5]
+	"云端平台" [fillcolor="#BF9000" fontcolor=black height=1.2 shape=component style="filled,rounded" width=2.5]
+	"用户端" [fillcolor="#ED7D31" fontcolor=white height=1.2 shape=component style="filled,rounded" width=2.5]
+	"传感器层" -> "边缘计算层" [label="同步采集" arrowhead=vee arrowsize=0.8 color="#2F5496" penwidth=2.0 style=solid]
+	"边缘计算层" -> "云端平台" [label="5G传输" arrowhead=odiamond arrowsize=0.8 color="#548235" penwidth=2.0 style=dashed]
+	"云端平台" -> "用户端" [label="OPC UA协议" arrowhead=odiamond arrowsize=0.8 color="#BF9000" penwidth=2.0 style=dotted]
+	"用户端" -> "边缘计算层" [label="参数反馈" arrowhead=odiamond arrowsize=0.8 color="#ED7D31" penwidth=2.0 style=dashed]
+}
